@@ -1,0 +1,100 @@
+:root {
+    --bg: #0f1115;
+    --surface: #171a21;
+    --surface-hover: #1d212a;
+    --border: #272c37;
+    --text: #e6e8ee;
+    --text-dim: #969db0;
+    --accent: #5b9dff;
+    --danger: #ff6b6b;
+    --radius: 10px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+}
+
+#app {
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 48px 20px;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1 {
+    margin: 0 0 20px;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+button {
+    font: inherit;
+    color: var(--text);
+    background: var(--surface-hover);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 7px 14px;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+button:hover {
+    background: #252a35;
+    border-color: #39404f;
+}
+
+input {
+    font: inherit;
+    color: var(--text);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 7px 10px;
+    width: 100%;
+}
+
+input::placeholder {
+    color: #5e6577;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+/* Shared bits used by both views. */
+.muted {
+    color: var(--text-dim);
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: var(--text-dim);
+    font-size: 14px;
+}
+
+.back-link:hover {
+    color: var(--text);
+    text-decoration: none;
+}
