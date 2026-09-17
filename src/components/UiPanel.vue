@@ -32,8 +32,8 @@ withDefaults(defineProps<Props>(), {
 <style scoped>
 .panel {
     background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    border-radius: 6px;
     overflow: hidden;
 }
 
@@ -43,7 +43,7 @@ withDefaults(defineProps<Props>(), {
     justify-content: space-between;
     gap: 12px;
     padding: 12px 16px;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--line);
 }
 
 .panel__title {
@@ -58,7 +58,7 @@ withDefaults(defineProps<Props>(), {
 
 .panel__foot {
     padding: 12px 16px;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--line);
     color: var(--text-dim);
     font-size: 13px;
 }

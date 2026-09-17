@@ -44,7 +44,7 @@ defineSlots<{
 .list__row {
     padding: 10px 12px;
     background: var(--bg);
-    border: 1px solid var(--border);
+    border: 1px solid var(--line);
     border-radius: 8px;
 }
 </style>

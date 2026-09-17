@@ -1,6 +1,6 @@
 <template>
     <section data-testid="user-details-view">
-        <RouterLink class="back-link" to="/">← Back to users</RouterLink>
+        <RouterLink class="back-link" to="/">← Sessions</RouterLink>
 
         <!-- Order matters: the first matching branch wins. -->
         <p v-if="isLoading" class="muted">Loading…</p>
@@ -11,7 +11,12 @@
 
         <template v-else>
             <div v-if="isFinished" class="expired" data-testid="session-expired">
-                Session expired.
+                <p class="expired__city muted">{{ currentUser.city }}</p>
+                <h1 class="expired__name">{{ currentUser.name }}</h1>
+
+                <p class="expired__note">This session ran out.</p>
+
+                <button type="button" @click="onRefresh">Start new session</button>
             </div>
 
             <UserCard
@@ -81,30 +86,38 @@ watch(() => currentUser.value?.sessionExpiresAt, (expiresAt) => {
 </script>
 
 <style scoped>
-.expired {
-    padding: 20px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    color: var(--danger);
+.expired__city {
+    margin: 0;
+    font-size: 13px;
+}
+
+.expired__name {
+    margin: 0 0 28px;
+}
+
+.expired__note {
+    padding: 20px 0;
+    margin: 0 0 24px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    color: var(--brick);
 }
 
 .note {
     display: block;
-    margin-top: 18px;
+    margin-top: 32px;
 }
 
 .note__label {
     display: block;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     color: var(--text-dim);
     font-size: 13px;
 }
 
 .note__echo {
-    margin: 10px 0 0;
+    margin: 12px 0 0;
     color: var(--text-dim);
     font-size: 14px;
-    font-style: italic;
 }
 </style>

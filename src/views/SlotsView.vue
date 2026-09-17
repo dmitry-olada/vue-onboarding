@@ -1,8 +1,8 @@
 <template>
     <section data-testid="slots-view">
-        <RouterLink class="back-link" to="/">← Back to users</RouterLink>
+        <RouterLink class="back-link" to="/">← Sessions</RouterLink>
 
-        <h1>Slots playground</h1>
+        <h1>Slot patterns</h1>
 
         <article class="demo">
             <h2 class="demo__label">1 · Default slot</h2>
@@ -124,7 +124,7 @@ watch(() => selectedUser.value?.sessionExpiresAt, (expiresAt) => {
 .demo {
     margin-top: 32px;
     padding-top: 24px;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--line);
 }
 
 .demo__label {
@@ -172,6 +172,6 @@ watch(() => selectedUser.value?.sessionExpiresAt, (expiresAt) => {
 }
 
 .row--on .row__mark {
-    color: var(--accent);
+    color: var(--amber);
 }
 </style>

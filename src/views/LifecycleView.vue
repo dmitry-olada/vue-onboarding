@@ -1,8 +1,8 @@
 <template>
     <section data-testid="lifecycle-view">
-        <RouterLink class="back-link" to="/">← Back to users</RouterLink>
+        <RouterLink class="back-link" to="/">← Sessions</RouterLink>
 
-        <h1>Lifecycle playground</h1>
+        <h1>Lifecycle hooks</h1>
 
         <div class="tabs">
             <button
@@ -67,8 +67,8 @@ const log = reactive<LogEntry[]>([])
 }
 
 .tabs__btn--active {
-    background: var(--accent);
-    border-color: var(--accent);
+    background: var(--amber);
+    border-color: var(--amber);
     color: #fff;
 }
 
@@ -108,6 +108,6 @@ const log = reactive<LogEntry[]>([])
 }
 
 .log__hook {
-    color: var(--accent);
+    color: var(--amber);
 }
 </style>

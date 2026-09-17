@@ -29,7 +29,7 @@ const increment = () => { counter.value++ }
 .tab {
     padding: 16px;
     background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    border-radius: 6px;
 }
 </style>

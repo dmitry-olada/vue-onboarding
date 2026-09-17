@@ -1,15 +1,11 @@
 <template>
     <article class="card" data-testid="user-card">
-        <header class="card__head">
-            <h2 class="card__name">{{ name }}</h2>
-            <span class="card__city">{{ city }}</span>
-        </header>
+        <p class="card__city muted">{{ city }}</p>
+        <h1 class="card__name">{{ name }}</h1>
 
-        <div class="card__timer">
-            <span class="card__label">Session expires in</span>
-            <span class="card__value" :class="{ 'card__value--low': isLow }">
-                {{ countdown }}
-            </span>
+        <div class="card__readout">
+            <span class="card__clock clock" :class="{ 'clock--low': isLow }">{{ countdown }}</span>
+            <span class="card__unit muted">left in this session</span>
         </div>
 
         <button type="button" @click="emit('refresh')">
@@ -33,54 +29,37 @@ const emit = defineEmits<{
     refresh: []
 }>()
 
+/** Under a minute. Holds while the countdown stays below an hour, which it does here. */
 const isLow = computed<boolean>(() => props.countdown.startsWith('00:'))
 </script>
 
 <style scoped>
-.card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 20px;
-}
-
-.card__head {
-    margin-bottom: 18px;
-}
-
-.card__name {
-    margin: 0;
-    font-size: 18px;
-    font-weight: 600;
-}
-
 .card__city {
-    color: var(--text-dim);
-    font-size: 14px;
-}
-
-.card__timer {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    padding: 12px 14px;
-    margin-bottom: 18px;
-    background: var(--bg);
-    border-radius: 8px;
-}
-
-.card__label {
-    color: var(--text-dim);
+    margin: 0;
     font-size: 13px;
 }
 
-.card__value {
-    font-variant-numeric: tabular-nums;
-    font-size: 20px;
-    font-weight: 600;
+.card__name {
+    margin: 0 0 28px;
 }
 
-.card__value--low {
-    color: var(--danger);
+.card__readout {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 20px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 24px;
+}
+
+.card__clock {
+    font-size: 44px;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.card__unit {
+    font-size: 14px;
 }
 </style>

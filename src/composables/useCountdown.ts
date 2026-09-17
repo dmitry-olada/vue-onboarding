@@ -37,6 +37,7 @@ export const useCountdown = () => {
     onUnmounted(stop)
 
     return {
+        msLeft,
         formatted,
         isFinished,
         start,
