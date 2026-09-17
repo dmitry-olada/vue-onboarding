@@ -15,3 +15,7 @@ export const formatDuration = (ms: number): string => {
 
     return `${minutes}:${(seconds % 60).toString().padStart(2, '0')}`
 }
+
+/** ISO timestamp as a local clock time, e.g. "16:45". */
+export const formatClock = (isoTime: string): string =>
+    new Date(isoTime).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })
